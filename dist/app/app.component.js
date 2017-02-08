@@ -10,21 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var connect4API_1 = require("./services/connect4API");
+var fakeGameData_1 = require("./shared/models/fakeGameData");
 var AppComponent = (function () {
     function AppComponent() {
+        this.numberOfColumns = 7;
+        this.numberOfRows = 6;
     }
     AppComponent.prototype.ngOnInit = function () {
         console.log('app initializing...');
     };
-    AppComponent.prototype.startNewGame = function () {
-        var newGameId = connect4API_1.Connect4API.createGame({ id: "USER1", name: "Justin", isActive: false });
+    AppComponent.prototype.startNewGame = function (numOfColumns, numOfRows) {
+        var createGameData = {
+            user: fakeGameData_1.FakeGameData.testGame.listOfPlayers[0],
+            numberOfColumns: numOfColumns,
+            numberOfRows: numOfRows
+        };
+        var newGameId = connect4API_1.Connect4API.createGame(createGameData);
         if (newGameId !== null) {
             var game = connect4API_1.Connect4API.getGame(newGameId);
             this.updateGame(game);
         }
     };
-    AppComponent.prototype.onColumnClick = function (column) {
-        console.log(column);
+    AppComponent.prototype.onColumnClick = function (apiColumn) {
+        console.log(apiColumn);
+        if (apiColumn !== null) {
+            connect4API_1.Connect4API.play(apiColumn.column.id, apiColumn.playerId, apiColumn.gameId);
+        }
     };
     AppComponent.prototype.updateGame = function (game) {
         this.game = game;

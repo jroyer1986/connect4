@@ -40,12 +40,12 @@ var Connect4API = (function () {
         console.log('API joinGame called by ' + user.name + ' for game ' + game.id);
         return null;
     };
-    Connect4API.play = function (spaceId, playerId, gameId) {
-        console.log('API play called by player id # ' + playerId + ' for game ' + gameId);
+    Connect4API.play = function (columnId, playerId, gameId) {
+        console.log('API play called on column ' + columnId + ' by player id ' + playerId + ' for game ' + gameId);
         return null;
     };
     Connect4API.leave = function (gameId, playerId) {
-        console.log('API leave called by player id # ' + playerId + ' for game ' + gameId);
+        console.log('API leave called by player id ' + playerId + ' for game ' + gameId);
         return null;
     };
     return Connect4API;
