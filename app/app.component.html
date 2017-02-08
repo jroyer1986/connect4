@@ -7,7 +7,7 @@
         </ul>
 
         <div *ngIf="game!==undefined">
-            <game [game]="game" (spaceClicked)="onSpaceClicked($event)"></game>
+            <game [game]="game" (columnClickedEmitter)="onColumnClick($event)"></game>
         </div>
     </div>
 </div>

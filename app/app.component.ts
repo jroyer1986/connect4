@@ -23,13 +23,13 @@ export class AppComponent {
 		}
 	}
 
-	onSpaceClicked(spaceClicked) {
-		console.log(spaceClicked);
+	onColumnClick(column) {
+		console.log(column);
 		
 	}
 
 	updateGame(game: Game) {
 		this.game = game;
-		console.log(this.game);
+		console.log("game updated!");
 	}
 }

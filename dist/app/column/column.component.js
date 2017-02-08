@@ -9,31 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var board_1 = require("../shared/models/board");
-var BoardComponent = (function () {
-    function BoardComponent() {
+var column_1 = require("../shared/models/column");
+var ColumnComponent = (function () {
+    function ColumnComponent() {
         this.columnClickedEmitter = new core_1.EventEmitter();
+        this.clickedColumn = new column_1.Column();
     }
-    BoardComponent.prototype.onColumnClick = function (column) {
-        //push the clicked space up to parent component
-        this.columnClickedEmitter.emit(column);
+    ColumnComponent.prototype.onColumnClick = function (event) {
+        if (event !== null) {
+            this.clickedColumn = { id: "COLUMN1", spaces: [] };
+            this.columnClickedEmitter.emit(this.clickedColumn);
+        }
     };
-    return BoardComponent;
+    return ColumnComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", board_1.Board)
-], BoardComponent.prototype, "board", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
-], BoardComponent.prototype, "columnClickedEmitter", void 0);
-BoardComponent = __decorate([
+], ColumnComponent.prototype, "columnClickedEmitter", void 0);
+ColumnComponent = __decorate([
     core_1.Component({
-        selector: 'connect4',
-        template: "\n\t\t<div class=\"board\">\n\t\t\t<h2>BOARD CONTAINER</h2>\n\t\t\t<column (columnClickedEmitter)=\"onColumnClick($event)\"></column>\n\n\t\t</div>\n\t",
-        styles: ["\n\t\t.board {\n\t\t\tborder: 2px solid red;\n\t\t}\n\t\th2 {\n\t\t\tcolor: red;\n\t\t}\n\t"]
+        selector: 'column',
+        template: "\n        <div class=\"column\" (click)=\"onColumnClick($event)\">\n            <space></space>\n        </div>\n    ",
+        styles: []
     })
-], BoardComponent);
-exports.BoardComponent = BoardComponent;
-//# sourceMappingURL=board.component.js.map
+], ColumnComponent);
+exports.ColumnComponent = ColumnComponent;
+//# sourceMappingURL=column.component.js.map
