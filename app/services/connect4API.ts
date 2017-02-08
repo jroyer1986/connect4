@@ -14,6 +14,7 @@ export class Connect4API {
 		console.log('API getGame called');
 		//hit getGame API passing in the gameId.  A json game should be returned.
 		let jsonGame = FakeGameData.testGame;
+
 		return jsonGame;
 	}
 
@@ -44,13 +45,13 @@ export class Connect4API {
 		return null;
 	}
 
-	public static play(spaceId: string, playerId: string, gameId: string){
-		console.log('API play called by player id # ' + playerId + ' for game ' + gameId);
+	public static play(columnId: string, playerId: string, gameId: string){
+		console.log('API play called on column ' + columnId + ' by player id ' + playerId + ' for game ' + gameId);
 		return null;
 	}
 
 	public static leave(gameId: string, playerId: string){
-		console.log('API leave called by player id # ' + playerId + ' for game ' + gameId);
+		console.log('API leave called by player id ' + playerId + ' for game ' + gameId);
 		return null;
 	}
 

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Space } from '../shared/models/space';
 import { Connect4API } from '../services/connect4API';
 import { Helpers } from '../services/helpers';
@@ -6,7 +6,7 @@ import { Helpers } from '../services/helpers';
 @Component({
 	selector: "space",
 	template: `
-		<div class="space" (click)="handleSpaceClick($event)">
+		<div class="space">
 			[O]
 		</div>
 	`,
@@ -23,14 +23,5 @@ import { Helpers } from '../services/helpers';
 	`]
 })
 export class SpaceComponent{
-	@Output() spaceClicked = new EventEmitter();
-	clickedSpace: Space = new Space();
 
-	handleSpaceClick(event){
-		if(event !== null){
-			//get the current space information to pass up to parent
-			this.clickedSpace = {id: "SPACE1", state: "unplayed", isAvailable: true, owner: null};
-			this.spaceClicked.emit({ space: this.clickedSpace });
-		}
-	}
 }

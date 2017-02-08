@@ -12,7 +12,7 @@ var core_1 = require("@angular/core");
 var game_1 = require("../shared/models/game");
 var GameComponent = (function () {
     function GameComponent() {
-        this.spaceClicked = new core_1.EventEmitter();
+        this.columnClickedEmitter = new core_1.EventEmitter();
     }
     GameComponent.prototype.setActivePlayer = function () {
         var _this = this;
@@ -30,16 +30,16 @@ var GameComponent = (function () {
         this.output = this.game.output;
         this.setActivePlayer();
     };
-    GameComponent.prototype.onSpaceClicked = function (spaceClicked) {
-        if (spaceClicked !== null) {
-            console.log(this.activePlayer);
+    GameComponent.prototype.onColumnClick = function (columnClicked) {
+        if (columnClicked !== null) {
+            console.log("active player is " + this.activePlayer);
             //send space object up to app level for the API call
             var objectForAPI = {
-                space: spaceClicked,
+                column: columnClicked,
                 playerId: this.activePlayer.id,
                 gameId: this.game.id
             };
-            this.spaceClicked.emit(objectForAPI);
+            this.columnClickedEmitter.emit(objectForAPI);
         }
     };
     return GameComponent;
@@ -51,11 +51,11 @@ __decorate([
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
-], GameComponent.prototype, "spaceClicked", void 0);
+], GameComponent.prototype, "columnClickedEmitter", void 0);
 GameComponent = __decorate([
     core_1.Component({
         selector: "game",
-        template: "\n\t\t<div class=\"game\">\n\t\t\t<h1>GAME CONTAINER</h1>\n\t\t\t<connect4 (spaceClicked)=\"onSpaceClicked($event)\"></connect4>\n\t\t</div>\n\t",
+        template: "\n\t\t<div class=\"game\">\n\t\t\t<h1>GAME CONTAINER</h1>\n\t\t\t<connect4 (columnClickedEmitter)=\"onColumnClick($event)\"></connect4>\n\t\t</div>\n\t",
         styles: ["\n\t\t.game {\n\t\t\tborder: 3px solid blue;\n\t\t}\n\t\th1 {\n\t\t\tcolor: blue;\n\t\t}\n\t"]
     })
 ], GameComponent);
