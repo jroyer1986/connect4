@@ -1,0 +1,13 @@
+<div class="jumbotron">
+    <h1 style="text-align: center">Let's Play Connect 4!</h1>
+
+    <div>
+        <ul class="actions">
+            <li><a (click)="startNewGame()">New game</a></li>
+        </ul>
+
+        <div *ngIf="game!==undefined">
+            <game [game]="game" (spaceClicked)="onSpaceClicked($event)"></game>
+        </div>
+    </div>
+</div>
