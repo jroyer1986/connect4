@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var board_component_1 = require("./board/board.component");
+var column_component_1 = require("./column/column.component");
 var space_component_1 = require("./space/space.component");
 var game_component_1 = require("./game/game.component");
 var users_form_component_1 = require("./users/users-form.component");
@@ -21,7 +22,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, board_component_1.BoardComponent, space_component_1.SpaceComponent, game_component_1.GameComponent, users_form_component_1.UserFormComponent],
+        declarations: [app_component_1.AppComponent, board_component_1.BoardComponent, column_component_1.ColumnComponent, space_component_1.SpaceComponent, game_component_1.GameComponent, users_form_component_1.UserFormComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

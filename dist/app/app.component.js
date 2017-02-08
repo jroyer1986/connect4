@@ -23,12 +23,12 @@ var AppComponent = (function () {
             this.updateGame(game);
         }
     };
-    AppComponent.prototype.onSpaceClicked = function (spaceClicked) {
-        console.log(spaceClicked);
+    AppComponent.prototype.onColumnClick = function (column) {
+        console.log(column);
     };
     AppComponent.prototype.updateGame = function (game) {
         this.game = game;
-        console.log(this.game);
+        console.log("game updated!");
     };
     return AppComponent;
 }());
