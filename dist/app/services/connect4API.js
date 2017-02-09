@@ -31,8 +31,8 @@ var Connect4API = (function () {
         console.log('API createPlayer called');
         return null;
     };
-    Connect4API.createGame = function (user) {
-        console.log('API createGame called by ' + user.name);
+    Connect4API.createGame = function (createGameData) {
+        console.log('API createGame called by ' + createGameData.user.name);
         //get gameId returned from API to give back to the app and use to call getGame
         return fakeGameData_1.FakeGameData.testGame.id;
     };
@@ -40,12 +40,12 @@ var Connect4API = (function () {
         console.log('API joinGame called by ' + user.name + ' for game ' + game.id);
         return null;
     };
-    Connect4API.play = function (spaceId, playerId, gameId) {
-        console.log('API play called by player id # ' + playerId + ' for game ' + gameId);
+    Connect4API.play = function (playData) {
+        console.log('API play called on column ' + playData.columnId + ' by player id ' + playData.playerId + ' for game ' + playData.gameId);
         return null;
     };
     Connect4API.leave = function (gameId, playerId) {
-        console.log('API leave called by player id # ' + playerId + ' for game ' + gameId);
+        console.log('API leave called by player id ' + playerId + ' for game ' + gameId);
         return null;
     };
     return Connect4API;
