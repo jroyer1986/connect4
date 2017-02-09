@@ -3,7 +3,8 @@ import { Connect4API } from './services/connect4API';
 import { FakeGameData } from './shared/models/fakeGameData';
 import { Game } from './shared/models/game';
 import { User } from './shared/models/user';
-import { CreateGameData } from './shared/apiModels/createGameData';
+import { CreateGameData } from './shared/models/modelsForConnect4API/createGameData';
+import { PlayData } from './shared/models/modelsForConnect4API/playData';
 
 @Component({
   selector: 'my-app',
@@ -38,9 +39,13 @@ export class AppComponent {
 	}
 
 	onColumnClick(apiColumn) {
-		console.log(apiColumn);
+		let playData: PlayData = {
+			columnId: apiColumn.columnId,
+			playerId: apiColumn.playerId,
+			gameId: apiColumn.gameId
+		};
 		if(apiColumn !== null) {
-			Connect4API.play(apiColumn.column.id, apiColumn.playerId, apiColumn.gameId);
+			Connect4API.play(playData);
 		}
 	}
 

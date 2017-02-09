@@ -39,7 +39,7 @@ var GameComponent = (function () {
                 playerId: this.activePlayer.id,
                 gameId: this.game.id
             };
-            this.columnClickedEmitter.emit(objectForAPI);
+            this.columnClickedEmitter.emit({ columnId: columnClicked.id, playerId: this.activePlayer.id, gameId: this.game.id });
         }
     };
     return GameComponent;

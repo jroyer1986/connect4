@@ -32,9 +32,13 @@ var AppComponent = (function () {
         }
     };
     AppComponent.prototype.onColumnClick = function (apiColumn) {
-        console.log(apiColumn);
+        var playData = {
+            columnId: apiColumn.columnId,
+            playerId: apiColumn.playerId,
+            gameId: apiColumn.gameId
+        };
         if (apiColumn !== null) {
-            connect4API_1.Connect4API.play(apiColumn.column.id, apiColumn.playerId, apiColumn.gameId);
+            connect4API_1.Connect4API.play(playData);
         }
     };
     AppComponent.prototype.updateGame = function (game) {
